@@ -3,7 +3,14 @@ name = "my_pkg_test"
 version = "0.1.0"
 edition = "2021"
 authors = ["Name <email@example.com>"]
+description = "A description of the package\nMore description"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+[package.metadata.generate-rpm]
+assets = [
+    { source = "target/release/my_pkg_test", dest = "/usr/bin/my_pkg_test", mode = "755" },
+]
